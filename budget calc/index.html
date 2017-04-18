@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OBT Budjet Calc</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <div id="header"> <h1>OBT BUDGET CALCULATOR</h1></div>
+    <div id="main">
+        <div id="BB1">  
+            <div id="b1">
+             <h1>Enter Income</h1><br>
+                <form>
+                    1st Income  <input type="text" id="income1"><br>
+                    2nd Income  <input type="text" id="income2"><br>
+                    Misc Income <input type="text" id="misc"><br>
+                                <input type="button" value="Total" onclick="doIncom()"><br>
+                          <input type="text" id="total1"><br>
+                </form>
+            </div>
+            <div id="b2">
+            <h1>Enter Expenses</h1><br>
+                <form>
+                    Rent/Mortgage <input type="text" id="rent"><br>
+                    Utilities     <input type="text" id="utilities"><br>
+                    Insurance     <input type="text" id="insur"><br>
+                    Food          <input type="text" id="food"><br>
+                    Gas           <input type="text" id="gas"><br>
+                    Other         <input type="text" id="other1"><br>
+                                  <input type="button" value="Total" onclick="doExpense()"><br>
+                                  <input type="text" id="total2"><br>
+                    
+                </form>
+            </div>
+        </div>
+        <div id="BB2">
+            <div id="b3">
+            <h1>Enter Liabilities</h1>
+                <form>
+                    Card #1     <input type="text" id="card1"><br>
+                    Card #2     <input type="text" id="card2"><br>
+                    Loans       <input type="text" id="loan"><br>
+                    Other       <input type="text" id="other2"><br>
+                                <input type="button" value="Total" onclick="doLia()"><br>
+                                <input type="text" id="total3"><br>
+                </form>
+            </div>
+            <div id="b4">
+            <h1>Total Ammount</h1>    
+                <form>
+                                    <br>
+                                    <input type="button" value="Accumulate Total" onclick="doMath()"><br><br><br>
+                    Income Total    <input type="text" id="incomeTot"><br>
+                    Expense Total   <input type="text" id="expenseTot"><br><br><br><br>
+                                    <input type="button" value="Total Profit/Loss" onclick="doProflos()">
+                                    <input type="text" id="proflos">
+
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        
+        //THIS IS FOR THE INCOME
+        function doIncom()
+    {
+        var num1 = document.getElementById('income1').value;
+        var num2 = document.getElementById('income2').value;
+        var num3 = document.getElementById('misc').value;
+        
+        //add them together and display
+        var sum = parseInt(num1) + parseInt(num2) + parseInt(num3);
+        document.getElementById('total1').value = sum;
+    }
+        
+        
+        //THIS IS FOR THE EXPENSES
+         function doExpense()
+    {
+        var num1 = document.getElementById('rent').value;
+        var num2 = document.getElementById('utilities').value;
+        var num3 = document.getElementById('insur').value;
+        var num4 = document.getElementById('food').value;
+        var num5 = document.getElementById('gas').value;
+        var num6 = document.getElementById('other1').value;
+        
+        //add them together and display
+        var sum = parseInt(num1) + parseInt(num2) + parseInt(num3) + parseInt(num4) + parseInt(num5) + parseInt(num6);
+        document.getElementById('total2').value = sum;
+    }
+      
+    
+
+        //THIS IS FOR THE LIABILITY
+        function doLia()
+    {
+        var num1 = document.getElementById('card1').value;
+        var num2 = document.getElementById('card2').value;
+        var num3 = document.getElementById('loan').value;
+        var num4 = document.getElementById('other2').value;
+        
+        //add them together and display
+        var sum = parseInt(num1) + parseInt(num2) + parseInt(num3) + parseInt(num3);
+        document.getElementById('total3').value = sum;
+    }
+        
+        
+        
+        //THIS WILL BE THE TOTAL GAIN OR LOSS PART1
+        function doMath()
+    {   
+        //THIS IS FOR THE EXPENSE TOTAL
+        var num1 = document.getElementById('total2').value;
+        var num2 = document.getElementById('total3').value;
+        
+        var sum = parseInt(num1) + parseInt(num2);
+        document.getElementById('expenseTot').value = sum;
+        
+        
+        //THIS IS FOR THE INCOME TOTAL
+        var num3 = document.getElementById('total1').value;
+        
+        var sum = parseInt(num3)        
+        document.getElementById('incomeTot').value = sum;
+    }
+      
+        
+        //THIS IS FOR THE TOTAL GAIN LOSS PART2
+        function doProflos()
+    {
+        var num1 = document.getElementById('incomeTot').value;
+        var num2 = document.getElementById('expenseTot').value;
+       
+        
+        //add them together and display
+        var dif = parseInt(num1) - parseInt(num2);
+        document.getElementById('proflos').value = dif;
+    }   
+    </script> 
+    
+</body>
+</html>
